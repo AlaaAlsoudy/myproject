@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alaa-dept
+spec:
+  selector:
+    matchLabels:
+      lab1: new-label
+  replicas: 3
+  template:
+    metadata:
+      name: new-pod
+      labels: 
+        lab1: new-label
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: nginx-test
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+      
